@@ -1,17 +1,15 @@
 package com.zlobasss.kurs.controller;
 
 import com.zlobasss.kurs.dto.UserDto;
-import com.zlobasss.kurs.entity.JwtRequest;
-import com.zlobasss.kurs.entity.JwtResponse;
+import com.zlobasss.kurs.dto.JwtRequest;
+import com.zlobasss.kurs.dto.JwtResponse;
 import com.zlobasss.kurs.mapping.AuthController;
 import com.zlobasss.kurs.repository.UserRepo;
 import com.zlobasss.kurs.security.JwtHelper;
 import com.zlobasss.kurs.service.IUserService;
-import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -1,4 +1,4 @@
-package com.zlobasss.kurs.entity;
+package com.zlobasss.kurs.dto;
 
 import lombok.*;
 

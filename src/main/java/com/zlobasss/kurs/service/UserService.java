@@ -1,7 +1,7 @@
 package com.zlobasss.kurs.service;
 
 import com.zlobasss.kurs.dto.UserDto;
-import com.zlobasss.kurs.entity.JwtResponse;
+import com.zlobasss.kurs.dto.JwtResponse;
 import com.zlobasss.kurs.entity.URole;
 import com.zlobasss.kurs.entity.User;
 import com.zlobasss.kurs.repository.UserRepo;
@@ -14,7 +14,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.beans.Encoder;
 import java.util.ArrayList;
 import java.util.List;
 
