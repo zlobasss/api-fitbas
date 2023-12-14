@@ -5,29 +5,27 @@ import lombok.*;
 
 import java.util.Set;
 
-@Entity
-@Table(name = "foods")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Getter
-@Setter
+@Entity
+@ToString
+@Table(name = "foods")
 public class Food {
-    // id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    // data
-    @NonNull
     private String name;
-    @NonNull
     private String description;
-    private short numOfServings;
-
-    // relation
-    @OneToMany(mappedBy = "food")
+    private short num_of_servings;
+    @OneToMany(mappedBy = "pk.food",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
     private Set<Recipe> recipes;
-    @OneToMany(mappedBy = "food")
-    private Set<ListFood> lists_food;
+    @OneToMany(mappedBy = "pk.food",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<FoodList> food_lists;
 }

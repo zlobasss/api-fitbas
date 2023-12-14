@@ -1,34 +1,30 @@
 package com.zlobasss.kurs.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Set;
 
-@Entity
-@Table(name = "products")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Setter
-@Getter
-@Data
+@Entity
+@ToString
+@Table(name = "products")
 public class Product {
-    // id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private long id;
-
-    // data
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
-
-    // relations
     @ManyToOne
-    @JoinColumn(name = "dimension_id", referencedColumnName = "id", nullable = false)
-    private Dimension dimension;
-    @ManyToOne
-    @JoinColumn(name = "group_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "group_id", nullable = false)
+    @JsonIgnore
     private Group group;
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "pk.product",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
     private Set<Recipe> recipes;
 }

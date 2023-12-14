@@ -21,17 +21,16 @@ public class User {
     private long id;
 
     // data
-    @Column(unique = true, length = 32)
     private String login;
-//    @NonNull
     private String password;
-//    @NonNull
     private String first_name;
-//    @NonNull
     private String last_name;
     private URole role = URole.U_ROLE;
+    @OneToMany(mappedBy = "pk.user",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<FoodList> food_lists;
 
     // relations
-    @OneToMany(mappedBy = "user")
-    private Set<Schedule> schedules;
+//    private Set<Training> schedules;
 }

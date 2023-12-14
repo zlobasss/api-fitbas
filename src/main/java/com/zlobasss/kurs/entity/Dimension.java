@@ -5,27 +5,20 @@ import lombok.*;
 
 import java.util.Set;
 
-@Data
-@Builder
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
-@Getter
-@ToString
+@Builder
 @Entity
+@ToString
 @Table(name = "dimensions")
 public class Dimension {
-    // id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private short id;
-
-    // data
-    @NonNull
     private String name;
-    private String shortname;
-
-    // relations
+    private String short_name;
     @OneToMany(mappedBy = "dimension")
-    private Set<Product> products;
+    private Set<Recipe> recipes;
 }

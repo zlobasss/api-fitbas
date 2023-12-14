@@ -1,30 +1,26 @@
 package com.zlobasss.kurs.entity;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import com.zlobasss.kurs.dto.RecipePK;
+import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
-@Data
+import java.math.BigDecimal;
+
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Setter
-@Getter
+@Entity
 @ToString
 @Table(name = "recipes")
 public class Recipe {
-    // id
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false)
-    private Product product;
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "food_id", referencedColumnName = "id", nullable = false)
-    private Food food;
-
-    // data
-    private int value;
+    @EmbeddedId
+    private RecipePK pk;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "dimensions_id", nullable = false)
+    private Dimension dimension;
+    private BigDecimal value;
 }

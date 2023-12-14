@@ -2,7 +2,6 @@ package com.zlobasss.kurs.service;
 
 import com.zlobasss.kurs.dto.UserDto;
 import com.zlobasss.kurs.dto.JwtResponse;
-import com.zlobasss.kurs.entity.Schedule;
 import com.zlobasss.kurs.entity.URole;
 import com.zlobasss.kurs.entity.User;
 import com.zlobasss.kurs.repository.UserRepo;
@@ -43,7 +42,7 @@ public class UserService implements IUserService {
                 .first_name(dto.getFirst())
                 .last_name(dto.getLast())
                 .role(URole.U_ROLE)
-                .schedules(new HashSet<Schedule>())
+                .food_lists(new HashSet<>())
                 .build()
         );
         String token = jwtHelper.generateToken(userDetailsService.loadUserByUsername(dto.getLogin()));
