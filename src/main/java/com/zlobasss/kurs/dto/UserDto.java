@@ -12,5 +12,5 @@ public class UserDto {
     private String login;
     private String password;
     private String first;
-    private String second;
+    private String last;
 }

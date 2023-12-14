@@ -2,13 +2,13 @@ package com.zlobasss.kurs.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.Set;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Data
 @Entity
@@ -21,14 +21,13 @@ public class User {
     private long id;
 
     // data
-    @NonNull
-    @Column(unique = true)
+    @Column(unique = true, length = 32)
     private String login;
-    @NonNull
+//    @NonNull
     private String password;
-    @NonNull
+//    @NonNull
     private String first_name;
-    @NonNull
+//    @NonNull
     private String last_name;
     private URole role = URole.U_ROLE;
 

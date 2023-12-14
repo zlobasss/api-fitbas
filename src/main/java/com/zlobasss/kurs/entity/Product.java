@@ -6,9 +6,10 @@ import lombok.*;
 import java.util.Set;
 
 @Entity
-@Builder
 @Table(name = "products")
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Setter
 @Getter
 @Data

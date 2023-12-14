@@ -7,8 +7,9 @@ import java.util.Date;
 import java.util.Set;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
-@RequiredArgsConstructor
 @Setter
 @Getter
 @ToString
