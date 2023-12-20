@@ -34,12 +34,6 @@ public class RecipeService implements IRecipeService{
             return new ResponseEntity<>(exception, HttpStatus.NOT_FOUND);
         }
         Optional<List<Recipe>> recipes = recipeRepo.findByPk_FoodId(food.get());
-
-        if (recipes.isPresent()) {
-            return new ResponseEntity<>(recipes, HttpStatus.OK);
-        }
-
-        ErrorException exception = new ErrorException(new ErrorBody(HttpStatus.NOT_FOUND.value(), "Recipe not found"));
-        return new ResponseEntity<>(exception, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(recipes, HttpStatus.OK);
     }
 }

@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+@AllArgsConstructor
 @Getter
 @Setter
-@AllArgsConstructor
-public class FoodResponse {
-    private String foodName;
-    private int value;
+public class DeleteResponse {
+    private int code;
+    private String message;
 }

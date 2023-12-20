@@ -2,16 +2,17 @@ package com.zlobasss.kurs.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.Date;
 
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
-public class MealResponse {
+public class EntryCreatedResponse {
+    private Date date;
     private String mealName;
-    private List<FoodResponse> foodList;
+    private String foodName;
+    private int value;
+    private boolean isCompleted;
 }

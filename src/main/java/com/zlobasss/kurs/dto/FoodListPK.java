@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Embeddable
 @Getter
@@ -31,4 +32,6 @@ public class FoodListPK implements Serializable {
     @JoinColumn(name = "meal_id")
     @JsonIgnore
     private Meal mealId;
+    @JsonIgnore
+    private Date date;
 }

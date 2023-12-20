@@ -1,5 +1,6 @@
 package com.zlobasss.kurs.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,5 +21,6 @@ public class Dimension {
     private String name;
     private String shortName;
     @OneToMany(mappedBy = "dimension")
+    @JsonIgnore
     private Set<Recipe> recipes;
 }

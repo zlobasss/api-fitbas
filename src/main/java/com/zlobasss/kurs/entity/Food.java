@@ -1,5 +1,6 @@
 package com.zlobasss.kurs.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,7 +11,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity
+@Entity(name = "foods")
 @ToString
 @Table(name = "foods")
 public class Food {
@@ -23,9 +24,11 @@ public class Food {
     @OneToMany(mappedBy = "pk.foodId",
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<Recipe> recipes;
     @OneToMany(mappedBy = "pk.foodId",
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<FoodList> foodLists;
 }

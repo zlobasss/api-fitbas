@@ -9,5 +9,5 @@ import java.util.List;
 @Service
 public interface IDimensionService {
     ResponseEntity<?> readAll();
-    ResponseEntity<?> read(short id);
+    ResponseEntity<?> read(String id);
 }

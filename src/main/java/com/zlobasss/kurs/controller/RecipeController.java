@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/recipe")
+@RequestMapping("/recipes")
 @AllArgsConstructor
 public class RecipeController {
 
@@ -18,7 +18,7 @@ public class RecipeController {
     private final IRecipeService recipeService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getRecipe(@PathVariable long foodId) {
-        return recipeService.readByFood(foodId);
+    public ResponseEntity<?> getRecipe(@PathVariable long id) {
+        return recipeService.readByFood(id);
     }
 }

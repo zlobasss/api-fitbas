@@ -1,6 +1,7 @@
 package com.zlobasss.kurs.controller;
 
-import com.zlobasss.kurs.service.IDimensionService;
+import com.zlobasss.kurs.service.IGroupService;
+import com.zlobasss.kurs.service.IMealService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,21 +11,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/dimensions")
+@RequestMapping("/meals")
 @AllArgsConstructor
-public class DimensionController {
+public class MealController {
+
     @Autowired
-    private final IDimensionService dimensionService;
+    private final IMealService mealService;
 
     @GetMapping
     public ResponseEntity<?> readAll() {
-        return dimensionService.readAll();
+        return mealService.readAll();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> read(@PathVariable String id) {
-        System.out.println("'" + id + "'");
-        return dimensionService.read(id);
+        return mealService.read(id);
     }
-
 }

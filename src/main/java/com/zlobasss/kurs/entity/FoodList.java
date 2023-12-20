@@ -12,14 +12,14 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity
+@Entity(name = "food_lists")
 @ToString
 @Table(name = "food_lists")
 @Data
 public class FoodList {
     @EmbeddedId
+    @JsonIgnore
     private FoodListPK pk;
     private boolean isCompleted;
-    private Date date;
     private short value;
 }
