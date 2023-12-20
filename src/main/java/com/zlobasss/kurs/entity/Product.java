@@ -20,10 +20,11 @@ public class Product {
     private int id;
     private String name;
     @ManyToOne
-    @JoinColumn(name = "group_id", nullable = false)
+    @JoinColumn(name = "groupId", nullable = false)
     @JsonIgnore
     private Group group;
-    @OneToMany(mappedBy = "pk.product",
+    @JsonIgnore
+    @OneToMany(mappedBy = "pk.productId",
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Set<Recipe> recipes;

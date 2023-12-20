@@ -12,11 +12,11 @@ import java.io.Serializable;
 @Embeddable
 public class RecipePK implements Serializable {
     @ManyToOne
-    @JoinColumn(name = "food_id")
+    @JoinColumn(name = "foodId")
     @JsonIgnore
-    private Food food;
+    private Food foodId;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @JoinColumn(name = "productId")
+    private Product productId;
 }

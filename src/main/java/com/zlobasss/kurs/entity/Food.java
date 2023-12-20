@@ -19,13 +19,13 @@ public class Food {
     private long id;
     private String name;
     private String description;
-    private short num_of_servings;
-    @OneToMany(mappedBy = "pk.food",
+    private short numOfServings;
+    @OneToMany(mappedBy = "pk.foodId",
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Set<Recipe> recipes;
-    @OneToMany(mappedBy = "pk.food",
+    @OneToMany(mappedBy = "pk.foodId",
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
-    private Set<FoodList> food_lists;
+    private Set<FoodList> foodLists;
 }

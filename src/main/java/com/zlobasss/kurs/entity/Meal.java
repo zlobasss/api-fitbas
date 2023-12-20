@@ -18,7 +18,7 @@ public class Meal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private short id;
     private String name;
-    @OneToMany(mappedBy = "pk.meal",
+    @OneToMany(mappedBy = "pk.mealId",
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Set<FoodList> food_lists;

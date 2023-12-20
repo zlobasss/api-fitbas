@@ -18,7 +18,7 @@ public class Dimension {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private short id;
     private String name;
-    private String short_name;
+    private String shortName;
     @OneToMany(mappedBy = "dimension")
     private Set<Recipe> recipes;
 }

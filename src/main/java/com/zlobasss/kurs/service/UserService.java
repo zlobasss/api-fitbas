@@ -39,10 +39,10 @@ public class UserService implements IUserService {
         userRepo.save(User.builder()
                 .login(dto.getLogin())
                 .password(encoder.encode(dto.getPassword()))
-                .first_name(dto.getFirst())
-                .last_name(dto.getLast())
+                .firstName(dto.getFirst())
+                .lastName(dto.getLast())
                 .role(URole.U_ROLE)
-                .food_lists(new HashSet<>())
+                .foodLists(new HashSet<>())
                 .build()
         );
         String token = jwtHelper.generateToken(userDetailsService.loadUserByUsername(dto.getLogin()));

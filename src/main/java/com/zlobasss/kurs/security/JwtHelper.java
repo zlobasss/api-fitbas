@@ -3,6 +3,8 @@ package com.zlobasss.kurs.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -16,14 +18,18 @@ public class JwtHelper {
 
     public static final long JWT_TOKEN_VALIDITY = 24 * 60 * 60;
 
-    private String secret = "V9cfOQVsUiiAqlwt+G7Lvg0OqFvegybYb9nGsDMMiOUWF29MBOhgOVny21hbnGHesXQhz7vWmuoNsk7jtLWeRA==";
+    private final String secret = "V9cfOQVsUiiAqlwt+G7Lvg0OqFvegybYb9nGsDMMiOUWF29MBOhgOVny21hbnGHesXQhz7vWmuoNsk7jtLWeRA==";
 
     public String getUsernameFromToken(String token) {
         return getClaimFromToken(token, Claims::getSubject);
     }
 
     private Claims getAllClaimsFromToken(String token) {
-        return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+        return Jwts.parserBuilder()
+                .setSigningKey(Keys.hmacShaKeyFor(Decoders.BASE64.decode(secret)))
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
     }
 
     public Date getExpirationDateFromToken(String token) {
@@ -48,7 +54,7 @@ public class JwtHelper {
     private String doGenerateToken(Map<String, Object> claims, String subject) {
         return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY * 1000))
-                .signWith(SignatureAlgorithm.HS512, secret).compact();
+                .signWith(Keys.hmacShaKeyFor(Decoders.BASE64.decode(secret))).compact();
     }
 
     public Boolean validateToken(String token, UserDetails userDetails) {

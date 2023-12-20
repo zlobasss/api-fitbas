@@ -1,5 +1,6 @@
 package com.zlobasss.kurs.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,5 +20,6 @@ public class Group {
     private short id;
     private String name;
     @OneToMany(mappedBy = "group")
+    @JsonIgnore
     private Set<Product> products;
 }

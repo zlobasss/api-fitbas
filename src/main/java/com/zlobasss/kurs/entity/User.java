@@ -23,13 +23,13 @@ public class User {
     // data
     private String login;
     private String password;
-    private String first_name;
-    private String last_name;
+    private String firstName;
+    private String lastName;
     private URole role = URole.U_ROLE;
-    @OneToMany(mappedBy = "pk.user",
+    @OneToMany(mappedBy = "pk.userId",
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
-    private Set<FoodList> food_lists;
+    private Set<FoodList> foodLists;
 
     // relations
 //    private Set<Training> schedules;

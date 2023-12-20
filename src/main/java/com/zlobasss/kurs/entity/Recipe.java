@@ -20,7 +20,7 @@ public class Recipe {
     @EmbeddedId
     private RecipePK pk;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dimensions_id", nullable = false)
+    @JoinColumn(name = "dimensionId", nullable = false)
     private Dimension dimension;
     private BigDecimal value;
 }

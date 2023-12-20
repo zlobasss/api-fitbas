@@ -33,7 +33,7 @@ public class SecurityConfig {
                         auth ->
                                 auth
                                         .requestMatchers("/auth/**").permitAll()
-                                        .anyRequest().authenticated())
+                                        .anyRequest().permitAll())
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(point))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
