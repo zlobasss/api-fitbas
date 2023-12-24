@@ -1,7 +1,6 @@
 package com.zlobasss.kurs.controller;
 
-import com.zlobasss.kurs.service.IGroupService;
-import com.zlobasss.kurs.service.IMealService;
+import com.zlobasss.kurs.serviceInterface.IMealService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

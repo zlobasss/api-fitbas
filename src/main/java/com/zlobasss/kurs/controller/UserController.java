@@ -1,14 +1,13 @@
 package com.zlobasss.kurs.controller;
 
-import com.zlobasss.kurs.dto.UserDto;
+import com.zlobasss.kurs.dto.UserRequest;
 import com.zlobasss.kurs.dto.JwtRequest;
 import com.zlobasss.kurs.dto.JwtResponse;
-import com.zlobasss.kurs.mapping.AuthController;
+import com.zlobasss.kurs.exception.ErrorBody;
+import com.zlobasss.kurs.exception.ErrorException;
 import com.zlobasss.kurs.repository.UserRepo;
 import com.zlobasss.kurs.security.JwtHelper;
-import com.zlobasss.kurs.service.IUserService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.zlobasss.kurs.serviceInterface.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,9 +41,6 @@ public class UserController {
     @Autowired
     private JwtHelper helper;
 
-    private final Logger logger = LoggerFactory.getLogger(AuthController.class);
-
-
     @PostMapping(value = "/sign-in", consumes = "application/json")
     public ResponseEntity<JwtResponse> signin(@RequestBody JwtRequest request) {
 
@@ -63,20 +59,20 @@ public class UserController {
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(email, password);
         try {
             manager.authenticate(authentication);
-        } catch (BadCredentialsException e) {
+        } catch (Exception e) {
             throw new BadCredentialsException(" Invalid Username or Password  !!");
         }
 
     }
 
     @PostMapping(value = "/sign-up", consumes = "application/json")
-    public ResponseEntity<?> register(@RequestBody UserDto dto) {
+    public ResponseEntity<?> register(@RequestBody UserRequest dto) {
         return userService.create(dto);
     }
 
 
     @ExceptionHandler(BadCredentialsException.class)
-    public String exceptionHandler() {
-        return "Credentials Invalid !!";
+    public ResponseEntity<ErrorException> exceptionHandler() {
+        return new ResponseEntity<>(new ErrorException(new ErrorBody(HttpStatus.CONFLICT.value(), "Credentials Invalid!!")), HttpStatus.CONFLICT);
     }
 }

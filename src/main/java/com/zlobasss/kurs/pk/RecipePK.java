@@ -1,4 +1,4 @@
-package com.zlobasss.kurs.dto;
+package com.zlobasss.kurs.pk;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zlobasss.kurs.entity.Food;

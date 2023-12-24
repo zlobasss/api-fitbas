@@ -11,16 +11,15 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity(name = "dimensions")
+@Entity
 @ToString
-@Table(name = "dimensions")
-public class Dimension {
+@Table(name = "types")
+public class Type {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private short id;
     private String name;
-    private String shortName;
-    @OneToMany(mappedBy = "dimension")
+    @OneToMany(mappedBy = "type")
     @JsonIgnore
-    private Set<Recipe> recipes;
+    private Set<Exercise> exercises;
 }

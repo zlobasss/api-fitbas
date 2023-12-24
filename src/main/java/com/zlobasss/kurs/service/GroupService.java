@@ -3,6 +3,7 @@ package com.zlobasss.kurs.service;
 import com.zlobasss.kurs.entity.Group;
 import com.zlobasss.kurs.exception.ErrorBody;
 import com.zlobasss.kurs.exception.ErrorException;
+import com.zlobasss.kurs.serviceInterface.IGroupService;
 import com.zlobasss.kurs.repository.GroupRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class GroupService implements IGroupService{
+public class GroupService implements IGroupService {
 
     @Autowired
     private final GroupRepo groupRepo;

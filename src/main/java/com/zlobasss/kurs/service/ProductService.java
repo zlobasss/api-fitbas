@@ -4,6 +4,7 @@ import com.zlobasss.kurs.entity.Group;
 import com.zlobasss.kurs.entity.Product;
 import com.zlobasss.kurs.exception.ErrorException;
 import com.zlobasss.kurs.exception.ErrorBody;
+import com.zlobasss.kurs.serviceInterface.IProductService;
 import com.zlobasss.kurs.repository.GroupRepo;
 import com.zlobasss.kurs.repository.ProductRepo;
 import lombok.AllArgsConstructor;

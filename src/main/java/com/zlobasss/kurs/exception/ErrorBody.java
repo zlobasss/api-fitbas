@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 @AllArgsConstructor
 @Getter
+@Setter
 public class ErrorBody implements Serializable {
     private int code;
     private String message;

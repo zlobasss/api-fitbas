@@ -1,10 +1,10 @@
-package com.zlobasss.kurs.service;
+package com.zlobasss.kurs.serviceInterface;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface IFoodService {
+public interface IGroupService {
     ResponseEntity<?> readAll();
-    ResponseEntity<?> read(long id);
+    ResponseEntity<?> read(String id);
 }

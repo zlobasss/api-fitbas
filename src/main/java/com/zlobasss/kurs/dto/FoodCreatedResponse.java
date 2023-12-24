@@ -9,7 +9,7 @@ import java.util.Date;
 @Getter
 @Setter
 @AllArgsConstructor
-public class EntryCreatedResponse {
+public class FoodCreatedResponse {
     private Date date;
     private String mealName;
     private String foodName;

@@ -1,6 +1,6 @@
 package com.zlobasss.kurs.controller;
 
-import com.zlobasss.kurs.service.IFoodService;
+import com.zlobasss.kurs.serviceInterface.IFoodService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,5 @@
 package com.zlobasss.kurs.dto;
 
-import jakarta.annotation.Nullable;
 import lombok.*;
 
 @Getter
@@ -8,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class FoodDto {
+public class FoodListRequest {
     private long foodId;
     private short mealId;
     private short value = 1;

@@ -23,7 +23,6 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
 
-        authException.printStackTrace();
         ErrorException error = new ErrorException(new ErrorBody(HttpStatus.FORBIDDEN.value(), "Login Failed"));
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);

@@ -1,6 +1,5 @@
 package com.zlobasss.kurs.dto;
 
-import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,11 +13,11 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class DateMealEntryResponse {
+public class DateMealFoodEntryResponse {
     private Timestamp date;
-    private List<MealEntryResponse> meals;
+    private List<MealFoodEntryResponse> meals;
 
-    public DateMealEntryResponse(Timestamp date) {
+    public DateMealFoodEntryResponse(Timestamp date) {
         this.date = date;
         meals = new ArrayList<>();
     }

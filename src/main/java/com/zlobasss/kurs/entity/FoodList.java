@@ -1,11 +1,9 @@
 package com.zlobasss.kurs.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.zlobasss.kurs.dto.FoodListPK;
+import com.zlobasss.kurs.pk.FoodListPK;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.Date;
 
 @Getter
 @Setter

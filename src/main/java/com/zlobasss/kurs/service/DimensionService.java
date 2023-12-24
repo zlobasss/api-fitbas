@@ -3,6 +3,7 @@ package com.zlobasss.kurs.service;
 import com.zlobasss.kurs.entity.Dimension;
 import com.zlobasss.kurs.exception.ErrorBody;
 import com.zlobasss.kurs.exception.ErrorException;
+import com.zlobasss.kurs.serviceInterface.IDimensionService;
 import com.zlobasss.kurs.repository.DimensionRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

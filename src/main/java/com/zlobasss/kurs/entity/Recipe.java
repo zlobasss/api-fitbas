@@ -1,10 +1,8 @@
 package com.zlobasss.kurs.entity;
 
-import com.zlobasss.kurs.dto.RecipePK;
+import com.zlobasss.kurs.pk.RecipePK;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
 
 import java.math.BigDecimal;
 
@@ -13,7 +11,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity
+@Entity(name = "recipes")
 @ToString
 @Table(name = "recipes")
 public class Recipe {

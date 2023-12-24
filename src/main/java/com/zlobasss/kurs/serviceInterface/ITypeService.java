@@ -1,13 +1,10 @@
-package com.zlobasss.kurs.service;
+package com.zlobasss.kurs.serviceInterface;
 
-import com.zlobasss.kurs.entity.Dimension;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public interface IDimensionService {
+public interface ITypeService {
     ResponseEntity<?> readAll();
     ResponseEntity<?> read(String id);
 }

@@ -1,6 +1,5 @@
 package com.zlobasss.kurs.dto;
 
-import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,11 +12,11 @@ import java.util.List;
 @Setter
 @Getter
 @NoArgsConstructor
-public class MealEntryResponse {
+public class MealFoodEntryResponse {
     private String mealName;
-    private List<EntryResponse> foods;
+    private List<FoodEntryResponse> foods;
 
-    public MealEntryResponse (String mealName) {
+    public MealFoodEntryResponse(String mealName) {
         this.mealName = mealName;
         foods = new ArrayList<>();
     }

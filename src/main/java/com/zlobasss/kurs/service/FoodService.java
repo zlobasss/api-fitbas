@@ -1,9 +1,9 @@
 package com.zlobasss.kurs.service;
 
 import com.zlobasss.kurs.entity.Food;
-import com.zlobasss.kurs.entity.Product;
 import com.zlobasss.kurs.exception.ErrorBody;
 import com.zlobasss.kurs.exception.ErrorException;
+import com.zlobasss.kurs.serviceInterface.IFoodService;
 import com.zlobasss.kurs.repository.FoodRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class FoodService implements IFoodService{
+public class FoodService implements IFoodService {
 
     @Autowired
     private final FoodRepo foodRepo;
@@ -29,7 +29,8 @@ public class FoodService implements IFoodService{
     public ResponseEntity<?> read(long id) {
         Optional<Food> food = foodRepo.findById(id);
         if (food.isEmpty()) {
-            ErrorException exp = new ErrorException(new ErrorBody(HttpStatus.NOT_FOUND.value(), "Not found product"));
+            ErrorException exp = new ErrorException(
+                    new ErrorBody(HttpStatus.NOT_FOUND.value(), "Not found food"));
             return new ResponseEntity<>(exp, HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(food.get(), HttpStatus.OK);

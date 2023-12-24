@@ -1,5 +1,7 @@
-package com.zlobasss.kurs.security;
+package com.zlobasss.kurs.config;
 
+import com.zlobasss.kurs.security.JwtAuthenticationEntryPoint;
+import com.zlobasss.kurs.security.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,7 +35,7 @@ public class SecurityConfig {
                         auth ->
                                 auth
                                         .requestMatchers("/auth/**").permitAll()
-                                        .anyRequest().permitAll())
+                                        .anyRequest().authenticated())
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(point))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
